@@ -1,0 +1,28 @@
+
+
+@Library('my-shared-lib') _
+
+pipeline {
+    agent any
+    tools {
+        maven 'maven3.10.0'
+        jdk 'java21'
+    }
+    stages {
+        stage ('checkout') {
+            steps {
+                git branch: 'project-1', url: 'https://github.com/srikanth78933/simple-java-app.git'
+            }
+        }
+        stage ('Build') {
+            steps {
+                mavenBuild()
+            }
+        }
+        stage ('post-build') {
+            steps {
+                echo "Build completed successfully"
+            }
+        }
+    }
+}
