@@ -1,5 +1,3 @@
-
-
 @Library('my-shared-lib') _
 
 pipeline {
@@ -26,3 +24,4 @@ pipeline {
         }
     }
 }
+
